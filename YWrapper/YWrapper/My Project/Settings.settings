@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="ParamChar" Type="System.Char" Scope="Application">
+      <Value Profile="(Default)">%</Value>
+    </Setting>
+    <Setting Name="Wait" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="Hidden" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ExeName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\EXTUserAppl\CommandLineReader\CommandLineReader.exe</Value>
+    </Setting>
+    <Setting Name="Constructor" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">-FirstParam:%1  -SecondParam:%2 %3 %4</Value>
+    </Setting>
+    <Setting Name="Verbose" Type="System.Boolean" Scope="Application">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
