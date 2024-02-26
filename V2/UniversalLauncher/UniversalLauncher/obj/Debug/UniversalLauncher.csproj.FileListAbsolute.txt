@@ -1,0 +1,10 @@
+C:\Users\User\source\repos\UniversalLauncher\UniversalLauncher\bin\Debug\UniversalLauncher.exe.config
+C:\Users\User\source\repos\UniversalLauncher\UniversalLauncher\bin\Debug\UniversalLauncher.exe
+C:\Users\User\source\repos\UniversalLauncher\UniversalLauncher\bin\Debug\UniversalLauncher.pdb
+C:\Users\User\source\repos\UniversalLauncher\UniversalLauncher\obj\Debug\UniversalLauncher.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\UniversalLauncher\UniversalLauncher\obj\Debug\UniversalLauncher.Properties.Resources.resources
+C:\Users\User\source\repos\UniversalLauncher\UniversalLauncher\obj\Debug\UniversalLauncher.csproj.GenerateResource.cache
+C:\Users\User\source\repos\UniversalLauncher\UniversalLauncher\obj\Debug\UniversalLauncher.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\UniversalLauncher\UniversalLauncher\obj\Debug\UniversalLauncher.exe
+C:\Users\User\source\repos\UniversalLauncher\UniversalLauncher\obj\Debug\UniversalLauncher.pdb
+C:\Users\User\source\repos\UniversalLauncher\UniversalLauncher\obj\Debug\UniversalLauncher.SumaryWindow.resources
