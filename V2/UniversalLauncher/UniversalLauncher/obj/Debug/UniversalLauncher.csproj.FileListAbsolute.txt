@@ -8,3 +8,15 @@ C:\Users\User\source\repos\UniversalLauncher\UniversalLauncher\obj\Debug\Univers
 C:\Users\User\source\repos\UniversalLauncher\UniversalLauncher\obj\Debug\UniversalLauncher.exe
 C:\Users\User\source\repos\UniversalLauncher\UniversalLauncher\obj\Debug\UniversalLauncher.pdb
 C:\Users\User\source\repos\UniversalLauncher\UniversalLauncher\obj\Debug\UniversalLauncher.SumaryWindow.resources
+C:\Users\User\source\repos\UniversalLauncher\UniversalLauncher\obj\Debug\UniversalLauncher.DetailWindow.resources
+C:\Users\User\Documents\GitHub\UniversalLauncher\V2\UniversalLauncher\UniversalLauncher\bin\Debug\UniversalLauncher.exe.config
+C:\Users\User\Documents\GitHub\UniversalLauncher\V2\UniversalLauncher\UniversalLauncher\bin\Debug\UniversalLauncher.exe
+C:\Users\User\Documents\GitHub\UniversalLauncher\V2\UniversalLauncher\UniversalLauncher\bin\Debug\UniversalLauncher.pdb
+C:\Users\User\Documents\GitHub\UniversalLauncher\V2\UniversalLauncher\UniversalLauncher\obj\Debug\UniversalLauncher.csproj.AssemblyReference.cache
+C:\Users\User\Documents\GitHub\UniversalLauncher\V2\UniversalLauncher\UniversalLauncher\obj\Debug\UniversalLauncher.DetailWindow.resources
+C:\Users\User\Documents\GitHub\UniversalLauncher\V2\UniversalLauncher\UniversalLauncher\obj\Debug\UniversalLauncher.SumaryWindow.resources
+C:\Users\User\Documents\GitHub\UniversalLauncher\V2\UniversalLauncher\UniversalLauncher\obj\Debug\UniversalLauncher.Properties.Resources.resources
+C:\Users\User\Documents\GitHub\UniversalLauncher\V2\UniversalLauncher\UniversalLauncher\obj\Debug\UniversalLauncher.csproj.GenerateResource.cache
+C:\Users\User\Documents\GitHub\UniversalLauncher\V2\UniversalLauncher\UniversalLauncher\obj\Debug\UniversalLauncher.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\GitHub\UniversalLauncher\V2\UniversalLauncher\UniversalLauncher\obj\Debug\UniversalLauncher.exe
+C:\Users\User\Documents\GitHub\UniversalLauncher\V2\UniversalLauncher\UniversalLauncher\obj\Debug\UniversalLauncher.pdb

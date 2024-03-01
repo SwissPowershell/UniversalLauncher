@@ -23,7 +23,9 @@ namespace UniversalLauncher
             InitializeComponent();
             SetValues(config);
         }
-
+        public SumaryWindow() {
+            InitializeComponent();
+        }
         private void SetValues(ProgramConfig config)
         {
             Config = config;

@@ -1,0 +1,165 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\User\\Documents\\GitHub\\UniversalLauncher\\V2\\UniversalLauncher\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BB1FD49F-32F6-4DBF-9700-B88E894193B0}|UniversalLauncher\\UniversalLauncher.csproj|c:\\users\\user\\documents\\github\\universallauncher\\v2\\universallauncher\\universallauncher\\detailwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB1FD49F-32F6-4DBF-9700-B88E894193B0}|UniversalLauncher\\UniversalLauncher.csproj|solutionrelative:universallauncher\\detailwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB1FD49F-32F6-4DBF-9700-B88E894193B0}|UniversalLauncher\\UniversalLauncher.csproj|C:\\Users\\User\\Documents\\GitHub\\UniversalLauncher\\V2\\UniversalLauncher\\universallauncher\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB1FD49F-32F6-4DBF-9700-B88E894193B0}|UniversalLauncher\\UniversalLauncher.csproj|solutionrelative:universallauncher\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB1FD49F-32F6-4DBF-9700-B88E894193B0}|UniversalLauncher\\UniversalLauncher.csproj|C:\\Users\\User\\Documents\\GitHub\\UniversalLauncher\\V2\\UniversalLauncher\\universallauncher\\detailwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BB1FD49F-32F6-4DBF-9700-B88E894193B0}|UniversalLauncher\\UniversalLauncher.csproj|solutionrelative:universallauncher\\detailwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB1FD49F-32F6-4DBF-9700-B88E894193B0}|UniversalLauncher\\UniversalLauncher.csproj|C:\\Users\\User\\Documents\\GitHub\\UniversalLauncher\\V2\\UniversalLauncher\\universallauncher\\sumarywindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB1FD49F-32F6-4DBF-9700-B88E894193B0}|UniversalLauncher\\UniversalLauncher.csproj|solutionrelative:universallauncher\\sumarywindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB1FD49F-32F6-4DBF-9700-B88E894193B0}|UniversalLauncher\\UniversalLauncher.csproj|C:\\Users\\User\\Documents\\GitHub\\UniversalLauncher\\V2\\UniversalLauncher\\universallauncher\\sumarywindow.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BB1FD49F-32F6-4DBF-9700-B88E894193B0}|UniversalLauncher\\UniversalLauncher.csproj|solutionrelative:universallauncher\\sumarywindow.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB1FD49F-32F6-4DBF-9700-B88E894193B0}|UniversalLauncher\\UniversalLauncher.csproj|C:\\Users\\User\\Documents\\GitHub\\UniversalLauncher\\V2\\UniversalLauncher\\universallauncher\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{BB1FD49F-32F6-4DBF-9700-B88E894193B0}|UniversalLauncher\\UniversalLauncher.csproj|solutionrelative:universallauncher\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB1FD49F-32F6-4DBF-9700-B88E894193B0}|UniversalLauncher\\UniversalLauncher.csproj|C:\\Users\\User\\Documents\\GitHub\\UniversalLauncher\\V2\\UniversalLauncher\\universallauncher\\sumarywindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BB1FD49F-32F6-4DBF-9700-B88E894193B0}|UniversalLauncher\\UniversalLauncher.csproj|solutionrelative:universallauncher\\sumarywindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB1FD49F-32F6-4DBF-9700-B88E894193B0}|UniversalLauncher\\UniversalLauncher.csproj|C:\\Users\\User\\Documents\\GitHub\\UniversalLauncher\\V2\\UniversalLauncher\\universallauncher\\exampleps1.ps1||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{BB1FD49F-32F6-4DBF-9700-B88E894193B0}|UniversalLauncher\\UniversalLauncher.csproj|solutionrelative:universallauncher\\exampleps1.ps1||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BB1FD49F-32F6-4DBF-9700-B88E894193B0}|UniversalLauncher\\UniversalLauncher.csproj|C:\\Users\\User\\Documents\\GitHub\\UniversalLauncher\\V2\\UniversalLauncher\\universallauncher\\examplecmd.cmd||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{BB1FD49F-32F6-4DBF-9700-B88E894193B0}|UniversalLauncher\\UniversalLauncher.csproj|solutionrelative:universallauncher\\examplecmd.cmd||{3B902123-F8A7-4915-9F01-361F908088D0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DetailWindow.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\UniversalLauncher\\V2\\UniversalLauncher\\UniversalLauncher\\DetailWindow.cs",
+              "RelativeDocumentMoniker": "UniversalLauncher\\DetailWindow.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\UniversalLauncher\\V2\\UniversalLauncher\\UniversalLauncher\\DetailWindow.cs",
+              "RelativeToolTip": "UniversalLauncher\\DetailWindow.cs",
+              "ViewState": "AQIAACgAAAAAAAAAAAAjwDAAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-01T22:28:55.584Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DetailWindow.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\UniversalLauncher\\V2\\UniversalLauncher\\UniversalLauncher\\DetailWindow.cs",
+              "RelativeDocumentMoniker": "UniversalLauncher\\DetailWindow.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\UniversalLauncher\\V2\\UniversalLauncher\\UniversalLauncher\\DetailWindow.cs [Design]",
+              "RelativeToolTip": "UniversalLauncher\\DetailWindow.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-01T22:28:55.868Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ExamplePS1.ps1",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\UniversalLauncher\\V2\\UniversalLauncher\\UniversalLauncher\\ExamplePS1.ps1",
+              "RelativeDocumentMoniker": "UniversalLauncher\\ExamplePS1.ps1",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\UniversalLauncher\\V2\\UniversalLauncher\\UniversalLauncher\\ExamplePS1.ps1",
+              "RelativeToolTip": "UniversalLauncher\\ExamplePS1.ps1",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-03-01T22:28:55.868Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SumaryWindow.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\UniversalLauncher\\V2\\UniversalLauncher\\UniversalLauncher\\SumaryWindow.Designer.cs",
+              "RelativeDocumentMoniker": "UniversalLauncher\\SumaryWindow.Designer.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\UniversalLauncher\\V2\\UniversalLauncher\\UniversalLauncher\\SumaryWindow.Designer.cs",
+              "RelativeToolTip": "UniversalLauncher\\SumaryWindow.Designer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001384|",
+              "WhenOpened": "2024-03-01T22:28:55.868Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SumaryWindow.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\UniversalLauncher\\V2\\UniversalLauncher\\UniversalLauncher\\SumaryWindow.cs",
+              "RelativeDocumentMoniker": "UniversalLauncher\\SumaryWindow.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\UniversalLauncher\\V2\\UniversalLauncher\\UniversalLauncher\\SumaryWindow.cs",
+              "RelativeToolTip": "UniversalLauncher\\SumaryWindow.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAAD4AAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-03-01T22:28:55.868Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ExampleCMD.cmd",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\UniversalLauncher\\V2\\UniversalLauncher\\UniversalLauncher\\ExampleCMD.cmd",
+              "RelativeDocumentMoniker": "UniversalLauncher\\ExampleCMD.cmd",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\UniversalLauncher\\V2\\UniversalLauncher\\UniversalLauncher\\ExampleCMD.cmd",
+              "RelativeToolTip": "UniversalLauncher\\ExampleCMD.cmd",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000614|",
+              "WhenOpened": "2024-03-01T22:28:55.868Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\UniversalLauncher\\V2\\UniversalLauncher\\UniversalLauncher\\Program.cs",
+              "RelativeDocumentMoniker": "UniversalLauncher\\Program.cs",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\UniversalLauncher\\V2\\UniversalLauncher\\UniversalLauncher\\Program.cs",
+              "RelativeToolTip": "UniversalLauncher\\Program.cs",
+              "ViewState": "AQIAAKAAAAAAAAAAAAAtwMwAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-01T22:28:55.868Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\UniversalLauncher\\V2\\UniversalLauncher\\UniversalLauncher\\App.config",
+              "RelativeDocumentMoniker": "UniversalLauncher\\App.config",
+              "ToolTip": "C:\\Users\\User\\Documents\\GitHub\\UniversalLauncher\\V2\\UniversalLauncher\\UniversalLauncher\\App.config",
+              "RelativeToolTip": "UniversalLauncher\\App.config",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACMAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2024-03-01T22:28:55.868Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "SumaryWindow.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\User\\Documents\\GitHub\\UniversalLauncher\\V2\\UniversalLauncher\\UniversalLauncher\\SumaryWindow.cs",
+              "RelativeDocumentMoniker": "UniversalLauncher\\SumaryWindow.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\UniversalLauncher\\UniversalLauncher\\SumaryWindow.cs [Design]",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\source\\repos\\UniversalLauncher\\UniversalLauncher\\SumaryWindow.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003525|",
+              "WhenOpened": "2024-03-01T22:28:55.868Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

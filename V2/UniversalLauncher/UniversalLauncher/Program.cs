@@ -1,11 +1,18 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
 using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
+using System.Threading;
 
 namespace UniversalLauncher
 {
@@ -15,7 +22,7 @@ namespace UniversalLauncher
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main(string[] args)
+        static void tMain(string[] args)
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -33,7 +40,15 @@ namespace UniversalLauncher
                 return;
             }
             Config.Execute();
+
             //MessageBox.Show("Exitting program...", "Debug", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+        static void Main(string[] args)
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            ULObject universalLauncher = new ULObject(args);
+            universalLauncher.ShowVerboseWindow();
         }
     }
     public enum EnvVarAction
@@ -412,4 +427,380 @@ namespace UniversalLauncher
             }
         }
     }
+    public class ULObject
+    {
+        public Guid ObjectID = new Guid();
+       
+        public FileInfo Launcher = new FileInfo((Process.GetCurrentProcess()).MainModule.FileName);
+        public String LauncherArguments {
+            get { return string.Join(" ", this.LauncherArgumentsArray); }
+        }
+        private string[] LauncherArgumentsArray;
+        public FileInfo ProcessToStart;
+        public String WorkingDirectory;
+        public String ArgumentsToPrepend = Helper.ReadConfig("PrependArguments");
+        public String ArgumentsToAppend = Helper.ReadConfig("AppendArguments");
+        public List<EnvironmentVariable> EnvironmentVariables;
+        private Boolean isDebug = Convert.ToBoolean(Helper.ReadConfig("Debug", "False"));
+        public Boolean Verbose = Convert.ToBoolean(Helper.ReadConfig("Verbose", "False"));
+        public Boolean Hide = Convert.ToBoolean(Helper.ReadConfig("Hide", "False"));
+        public Boolean Wait = Convert.ToBoolean(Helper.ReadConfig("Wait", "False"));
+        public Boolean Reporting = Convert.ToBoolean(Helper.ReadConfig("Reporting", "False"));
+        public String ReportingPath = Helper.ReadConfig("ReportingPath", "");
+        public ULObject(string[] args)
+        {
+            LauncherArgumentsArray = args;
+            RetrieveArgumentModifier(); // you can override the debug and verbose config option
+            // Decode the "Start" config object
+            String toStart = Helper.ReadConfig("Start");
+            String toStartDecoded = DecodePath(toStart,true);
+            if (toStartDecoded == "")
+            {
+                Helper.ErrorMessage(@"Target not found
+
+" + toStart + @"
+
+Can't be found !", "Path not found");
+                return;
+            }
+            else
+            {
+                ProcessToStart = new FileInfo(toStartDecoded);
+            }
+            // Decode the "WorkingDirectory" config object
+            WorkingDirectory = DecodePath(Helper.ReadConfig("WorkingDirectory"),false);
+            // get the env var
+            EnvironmentVariables = GetEnvironmentVariables();
+            if (Reporting || ReportingPath == "") { 
+                if (isDebug)
+                {
+                    Helper.DebugMessage(@"
+Reporting is [True] but not ReportingPath config set...
+Reporting will be set to [False].", "Reporting config mismatch!");
+                }
+                Reporting = false; 
+            }
+            
+        }
+        public Boolean ShowVerboseWindow() 
+        {
+            if (Verbose)
+            {
+                DetailWindow SumaryWindow = new DetailWindow(this);
+                Application.Run(SumaryWindow);
+                string FullName = SumaryWindow.ULObject.ProcessToStart.FullName;
+                return SumaryWindow.Result == DialogResult.OK;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        public void RetrieveArgumentModifier()
+        {
+            // Search for argument modifier in the format -+Debug+ or -+Verbose+ that can override the config file
+            // allowed Debug,Verbose
+            string resultDebug = LauncherArgumentsArray.FirstOrDefault(s => string.Equals(s, "-+debug+", StringComparison.OrdinalIgnoreCase));
+            string resultVerbose = LauncherArgumentsArray.FirstOrDefault(s => string.Equals(s, "-+verbose+", StringComparison.OrdinalIgnoreCase));
+            if (resultDebug != null)
+            {
+                // If found, remove it from the array
+                LauncherArgumentsArray = LauncherArgumentsArray.Where(s => !string.Equals(s, "-+debug+", StringComparison.OrdinalIgnoreCase)).ToArray();
+                isDebug = true;
+            }
+            if (resultVerbose != null)
+            {
+                // If found, remove it from the array
+                LauncherArgumentsArray = LauncherArgumentsArray.Where(s => !string.Equals(s, "-+verbose+", StringComparison.OrdinalIgnoreCase)).ToArray();
+                Verbose = true;
+            }
+        }
+        public void Start() 
+        {
+            // Set the environment Variables
+            // Report Process start if reporting
+            // Start the process
+            // Report Process stop if reporting
+        }
+        public String DecodePath(String path,Boolean isFile) 
+        {
+            Boolean pathExist = false;
+            String inputstr = path;
+            if (isFile){pathExist = System.IO.File.Exists(path); } else { pathExist = System.IO.Directory.Exists(path); }
+            if (pathExist)
+            {
+                path = Path.GetFullPath(path);
+                if (isDebug)
+                {
+                    Helper.DebugMessage(@"The input string: 
+
+" + inputstr + @"
+
+As been found in:
+
+" + path, "DecodePath - Path is full path!");
+                }
+                return path;
+            }
+            // Search for the given path
+            // replace currdir by the current process directory
+            path = Helper.DecodeCurrDir(path);
+            // replace .\ by the current process directory
+            path = Regex.Replace(path, @"^\.\\(.*)$", Launcher.DirectoryName + @"\$1" );
+            path = Path.GetFullPath(path);
+            if (isFile) { pathExist = System.IO.File.Exists(path); } else { pathExist = System.IO.Directory.Exists(path); }
+            if (pathExist)
+            {
+                if (isDebug) { 
+                    Helper.DebugMessage(@"The input string:
+
+" + inputstr + @"
+
+As been found in:
+
+" + path, "DecodePath - Path is relative path!"); 
+                }   
+                return path;
+            }
+            else 
+            {
+                // the path exist search if it exist in one of the %path% directory
+                string[] pathDirectories = Environment.GetEnvironmentVariable("PATH").Split(Path.PathSeparator);
+                // Search for the application within the PATH directories
+                foreach (string directory in pathDirectories)
+                {
+                    string fullpathtest = Path.Combine(directory, inputstr);
+                    fullpathtest = Path.GetFullPath(fullpathtest);
+                    if (isFile) { pathExist = System.IO.File.Exists(path); } else { pathExist = System.IO.Directory.Exists(path); }
+                    if (pathExist)
+                    {
+                        if (isDebug)
+                        {
+                            Helper.DebugMessage(@"The input string: 
+" + inputstr + @"
+As been found in:
+" + fullpathtest, "DecodePath - Path exist in a default directory");
+                        }
+                        return fullpathtest;
+                    }
+                }
+                if (isDebug)
+                {
+                    Helper.DebugMessage(@"The input string: 
+" + inputstr + @"
+Can't be found anywhere, Tested:
+" + Launcher.DirectoryName + "" + @"
+" + String.Join(@"
+",pathDirectories), "DecodePath - Path does not exist");
+                }
+                return "";
+            }
+            
+        }
+        public List<EnvironmentVariable> GetEnvironmentVariables()
+        {
+            List<EnvironmentVariable> retval = new List<EnvironmentVariable>();
+            foreach (String envVarstr in Helper.ReadConfig("CreateEnvVar", "").Split(';'))
+            {
+                if (!(envVarstr == "" || envVarstr == null)){retval.Add(new EnvironmentVariable(EnvVarAction.Create, envVarstr));}
+            }
+            foreach (String envVarstr in Helper.ReadConfig("PrependEnvVar", "").Split(';'))
+            {
+                if (!(envVarstr == "" || envVarstr == null)){retval.Add(new EnvironmentVariable(EnvVarAction.Prepend, envVarstr));}
+            }
+            foreach (String envVarstr in Helper.ReadConfig("AppendEnvVar", "").Split(';'))
+            {
+                if (! (envVarstr == "" || envVarstr == null)){retval.Add(new EnvironmentVariable(EnvVarAction.Append, envVarstr));} 
+            }
+            return retval;
+    }
+        public void SetEnvironmentVariables(){ EnvironmentVariables.ForEach(envvar => envvar.Write(isDebug)); }
+        public void ReportStart() { }
+        public void ReportStop() { }
+    }
+    public class EnvironmentVariable
+    {
+        public EnvVarAction Action;
+        public String Name;
+        public String Value;
+        public EnvironmentVariable(EnvVarAction action, String name)
+        {
+            Action = action;
+            Name = name;
+            string value = Helper.ReadConfig("EnvVar_" + name);
+            Value = Helper.DecodeCurrDir(value);
+        }
+        public void Write(Boolean isDebug = false)
+        {
+            
+            EnvironmentVariableTarget target = EnvironmentVariableTarget.Process;
+            string currvalue = Environment.GetEnvironmentVariable(Name);
+            switch (Action)
+            {
+                case EnvVarAction.Create:
+                    Environment.SetEnvironmentVariable(Name, Value, target);
+                    break;
+                case EnvVarAction.Append:
+                    Environment.SetEnvironmentVariable(Name, currvalue + ";" + Value, target);
+                    break;
+                case EnvVarAction.Prepend:
+                    Environment.SetEnvironmentVariable(Name, Value + ";" + currvalue, target);
+                    break;
+                default:
+                    break;
+            }
+            string newvalue = Environment.GetEnvironmentVariable(Name);
+            if (isDebug)
+            {
+                Helper.DebugMessage(@"Environment Variable
+Name: " + Name + @"
+" + Action + ": " + Value + @"
+
+New Value :
+" + newvalue.Replace(";",@";
+"), "Environment Variable " + Action);
+            }
+        }
+    }
+    public class Helper
+    {
+        public static String ReadConfig(String name,String defaultValue = "")
+        {
+            String keyvalue = "";
+            try
+            {
+                keyvalue = ConfigurationManager.AppSettings[name];
+            }
+            catch
+            {
+                // the value did not exist
+            }
+            if (keyvalue == "" || keyvalue == null)
+            {
+                return defaultValue;
+            }
+            else
+            {
+                return keyvalue;
+            }
+            
+        }
+        public static void DebugMessage(String message,String title) 
+        {
+            MessageBox.Show(message, "Debug - " + title, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+        public static void ErrorMessage(String message, String title)
+        {
+            MessageBox.Show(message, "Error - " + title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        public static void Execute(String FileName,String WorkingDirectory,String Arguments,Boolean Hidden, Boolean Wait)
+        {
+            ProcessStartInfo processStartInfo = new ProcessStartInfo
+            {
+                FileName = FileName,
+                WorkingDirectory = WorkingDirectory,
+                Arguments = Arguments,
+                UseShellExecute = false,
+                CreateNoWindow = Hidden,
+            };
+            Process process = Process.Start(processStartInfo);
+            if (Wait == true)
+            {
+                process.WaitForExit();
+            }
+            process.Dispose();
+        }
+        public static String DecodeCurrDir(String path) 
+        {
+            if (path.ToLower().Contains("%currdir%"))
+            {
+                FileInfo currprocess = new FileInfo((Process.GetCurrentProcess()).MainModule.FileName);
+                path = Regex.Replace(path, @"(?i)^.*?%currdir%.*?$", currprocess.DirectoryName, RegexOptions.IgnoreCase);
+                return path;
+            }
+            else
+            {
+                return path;
+            }
+            
+        }
+    }
+    public class ReportingManager
+    {
+        private const string XmlFilePath = "report.xml";
+
+        public static void ReportProcessStart(string processPath, string workingDirectory, string arguments, string userName)
+        {
+            XmlDocument doc = new XmlDocument();
+
+            // Lock the XML file for exclusive access
+            using (FileStream fileStream = new FileStream(XmlFilePath, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None))
+            {
+                fileStream.Lock(0, fileStream.Length);
+
+                // Load existing XML file
+                doc.Load(fileStream);
+
+                // Create a new process element with a random GUID as the identifier
+                XmlElement processElement = doc.CreateElement("Process");
+                processElement.SetAttribute("ID", Guid.NewGuid().ToString());
+
+                // Add child elements for the process details
+                AddXmlElement(doc, processElement, "ProcessPath", processPath);
+                AddXmlElement(doc, processElement, "WorkingDirectory", workingDirectory);
+                AddXmlElement(doc, processElement, "Arguments", arguments);
+                AddXmlElement(doc, processElement, "UserName", userName);
+                AddXmlElement(doc, processElement, "StartTime", DateTime.Now.ToString());
+
+                // Append the process element to the root
+                doc.DocumentElement?.AppendChild(processElement);
+
+                // Save the XML file
+                doc.Save(fileStream);
+
+                // Release the lock
+                fileStream.Unlock(0, fileStream.Length);
+            }
+        }
+
+        public static void ReportProcessStop(string processId, int errorLevel)
+        {
+            XmlDocument doc = new XmlDocument();
+
+            // Lock the XML file for exclusive access
+            using (FileStream fileStream = new FileStream(XmlFilePath, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.None))
+            {
+                fileStream.Lock(0, fileStream.Length);
+
+                // Load existing XML file
+                doc.Load(fileStream);
+
+                // Find the process element with matching ID
+                XmlNode processNode = doc.SelectSingleNode($"//Process[@ID='{processId}']");
+                if (processNode != null)
+                {
+                    // Update the StopTime, Elapsed, and ErrorLevel
+                    processNode["StopTime"].InnerText = DateTime.Now.ToString();
+                    DateTime startTime = DateTime.Parse(processNode["StartTime"].InnerText);
+                    TimeSpan elapsedTime = DateTime.Now - startTime;
+                    processNode["Elapsed"].InnerText = elapsedTime.ToString();
+                    processNode["ErrorLevel"].InnerText = errorLevel.ToString();
+                }
+
+                // Save the XML file
+                doc.Save(fileStream);
+
+                // Release the lock
+                fileStream.Unlock(0, fileStream.Length);
+            }
+        }
+
+        private static void AddXmlElement(XmlDocument doc, XmlElement parent, string elementName, string value)
+        {
+            XmlElement element = doc.CreateElement(elementName);
+            element.InnerText = value;
+            parent.AppendChild(element);
+        }
+    }
+
 }
