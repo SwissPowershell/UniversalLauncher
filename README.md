@@ -1,4 +1,4 @@
-# YWrapper
+# YWrapper / Universal Launcher
 
 ## Note
 
